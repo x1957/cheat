@@ -1,0 +1,84 @@
+% LaTeX style for contest problem typesetting
+% Author: Lgarithm, 2011% Email: lgarithm@gmail.com
+\ProvidesPackage{scuicpc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\addtolength{\voffset}{-35mm}
+\addtolength{\hoffset}{-20mm}
+\addtolength{\textwidth}{40mm}
+\addtolength{\textheight}{35mm}
+\addtolength{\headheight}{22mm}
+% \newcommand{\contestname}{Sichuan University\\Programming Contest}
+% \newcommand{\foottext}{SCU PC}
+% \makeatletter
+
+% \renewcommand{\@oddhead}{
+	% \begin{minipage}[b]{\textwidth}
+		% \parbox[b]{0.3\textwidth}{\contestname\smallskip}\hfill
+		% \@ifundefined{makelogo}{
+			% \@ifundefined{logo}{}
+			% {\parbox[b]{0.5\textwidth}{\hfill\includegraphics[height=20mm]{\logo}}}}
+		% {\makelogo}
+		% \hrule
+	% \end{minipage}}
+
+% \renewcommand{\@oddfoot}{
+	% \parbox{\textwidth}
+	% {\hrule\smallskip\foottext\hfill Page \thepage\,of \pageref{LastPage}}}
+
+% \makeatother
+% \newcounter{pid}
+
+\newenvironment{problem}[4]{
+\begin{center}
+\textsf{
+% \huge Problem \refstepcounter{pid}\Alph{pid}
+\quad #1}
+% \smallskip\\ Time Limit: #2 \quad Memory Limit: #3
+\end{center}
+	% \newcommand\psect[1]{{\noindent\bf\large\smallskip\textsf{##1}}\\}
+	\newcommand\psect[1]{{\bf\large\smallskip\textsf{##1}}\\}
+	\newcommand\Description{\bigskip\psect{Description}}
+	\newcommand\Input{\bigskip\psect{Input}}
+	\newcommand\Output{\bigskip\psect{Output}}
+	\newcommand\SampleInput{\bigskip\psect{Sample Input}}
+	\newcommand\SampleOutput{\bigskip\psect{Sample Output}}
+	\newcommand\Hint{\bigskip\psect{Hint}}
+	\newcommand\Author{\bigskip\psect{Author}#4}
+	\newcommand{\Exmpfile}[2]{
+	\bigskip\noindent
+
+	\begin{minipage}[t]{\textwidth}
+	\psect{Example}
+	\begin{tabular}{|l|l|} \hline
+		SampleInput & SampleOutput \\\hline
+		\begin{minipage}[t]{.5\textwidth}\verbatiminput{##1}\smallskip\end{minipage}&
+		\begin{minipage}[t]{.5\textwidth}\verbatiminput{##2}\smallskip\end{minipage}\\\hline
+	\end{tabular}
+	\end{minipage}}
+	\newcommand{\WideExmpfile}[2]{
+	\bigskip\noindent
+	\begin{minipage}[t]{\textwidth}
+	\psect{Example}
+	\begin{tabular}{|l|} \hline
+		SampleInput \\\hline
+		\begin{minipage}[t]{\textwidth}\verbatiminput{##1}\smallskip\end{minipage}\\\hline
+		SampleOutput \\\hline
+		\begin{minipage}[t]{\textwidth}\verbatiminput{##2}\smallskip\end{minipage}\\\hline
+	\end{tabular}
+	\end{minipage}}
+}
+{
+% \Author
+% \clearpage
+}
+
+% \renewcommand\baselinestretch{1.1}
+% \pagenumbering{Roman}
